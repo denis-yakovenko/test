@@ -3,32 +3,6 @@ header("Content-Type: text/html; charset=\"utf-8\"");
 header("Cache-Control: no-store, no-cache,  must-revalidate"); 
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 ini_set('display_errors', 'on');
-#ini_set('error_reporting', 'E_ALL & ~E_STRICT');
-ini_set('error_reporting', 'E_ALL & ~E_DEPRECATED');
-putenv("NLS_LANG=American_America.UTF8");
-#mb_internal_encoding("UTF-8");
-#setlocale(LC_ALL, "rus_RUS.UTF-8");
-#putenv("NLS_LANG=RUSSIAN_CIS.CL8MSWIN1251");
-#mb_internal_encoding("CP1251");
-require_once "smarty_init.php";
-//$start=date("d.m.Y H:i:s");
-require_once "class.phpmailer.php";
-require_once "local_functions.php";
-InitRequestVar('remote_addr',$_SERVER["REMOTE_ADDR"]);
-$smarty->assign('remote_addr', $_SERVER["REMOTE_ADDR"]);
-//putenv("NLS_LANG=RUSSIAN_CIS.CL8MSWIN1251");
-define('ZAOAVK','(DESCRIPTION =    (ADDRESS_LIST =      (ADDRESS = (PROTOCOL = TCP)(PORT = 1521)(HOST = oracle1.avk.company))    )    (CONNECT_DATA =      (SERVICE_NAME = ZAOAVK)      (SERVER = DEDICATED)    )  )');
-define('ZAOIBM','(DESCRIPTION =    (ADDRESS_LIST =      (ADDRESS = (PROTOCOL = TCP)(PORT = 1521)(HOST = oracle2.avk.company))    )    (CONNECT_DATA =      (SERVICE_NAME = ZAOAVK)      (SERVER = DEDICATED)    )  )');
-//define('ZAOAVK','(DESCRIPTION =    (ADDRESS_LIST =      (ADDRESS = (PROTOCOL = TCP)(PORT = 1521)(HOST = 192.168.4.253))    )    (CONNECT_DATA =      (SERVICE_NAME = ZAOAVK)      (SERVER = DEDICATED)    )  )');
-//define('ZAOWH','(DESCRIPTION =    (ADDRESS_LIST =      (ADDRESS = (PROTOCOL = TCP)(PORT = 1521)(HOST = 192.168.4.242))    )    (CONNECT_DATA =      (SERVICE_NAME = ZAOWH)      (SERVER = DEDICATED)    )  )');
-//define('ZAOIBM','(DESCRIPTION =    (ADDRESS_LIST =      (ADDRESS = (PROTOCOL = TCP)(PORT = 1521)(HOST = 10.2.10.242))    )    (CONNECT_DATA =      (SERVICE_NAME = ZAOWH)      (SERVER = DEDICATED)    )  )');
-require_once 'MDB2.php';
-//echo date("d.m.Y h:i:s");
-//$dsn = 'oci8://persik:razvitie@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(PORT = 1521)(HOST = 192.168.4.253)))(CONNECT_DATA = (SERVICE_NAME = ZAOAVK)))';
-//$dsn = 'oci8://persik:razvitie@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(PORT = 1521)(HOST = 192.168.4.253)))(CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = ZAOAVK)))';
-//$dsn = 'oci8://persik:razvitie@'.ZAOWH;
-$dsn = 'oci8://persik:razvitie@'.ZAOIBM;
-//$dsn = 'oci8://persik:razvitie@'.ZAOIBM.'/?charset=AL32UTF8';
 /*
 if ($_REQUEST['remote_addr']=='192.168.3.198')
 {$dsn = 'oci8://persik:razvitie@'.ZAOIBM;}
